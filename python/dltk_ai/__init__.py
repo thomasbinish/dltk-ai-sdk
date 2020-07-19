@@ -1,11 +1,11 @@
-"""A library that provides a Python interface to the Intellihub APIs."""
+"""A library that provides a Python interface to the DLTK APIs."""
 
-__author__ = 'The Spotflock Developers'
-__email__ = ''
+__author__ = 'DLTK'
+__email__ = 'connect@qubitai.tech'
 __copyright__ = 'Copyright (c) 2019-2020 The Spotflock LLC'
-__version__ = '1.2.0'
-__url__ = ''
+__version__ = '1.0.0'
+__url__ = 'https://github.com/dltk-ai/dltk-ai-sdk'
 __download_url__ = ''
-__description__ = 'A Python wrapper around the Spotflock API'
+__description__ = 'A Python wrapper around the DLTK API'
 
 from .core import DltkAiClient
