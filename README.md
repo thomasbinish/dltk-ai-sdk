@@ -1,29 +1,18 @@
-# README #
+# DLTK SDK (Python)
 
-This README would normally document whatever steps are necessary to get your application up and running.
+[![](https://github.com/dltk-ai/dltk-ai-sdk/blob/master/python/dltk.png)](https://dev.dltk.ai/)
 
-### What is this repository for? ###
+DLTK renders a comprehensive spectrum of solutions that can be accessed by users on-demand from our pool of transformational technologies.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Installation
 
-### How do I get set up? ###
+DLTK SDK requires Python 3.5 + . Go to https://dev.dltk.ai/ and create an app. On creation of an app, you will get an API Key.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+```sh
+import dltk_ai
+c = dltk_ai.DltkAiClient('API Key')
+response = c.sentiment_analysis('I am feeling good.')
+print(response)
+```
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+For more details, visit https://dev.dltk.ai/
