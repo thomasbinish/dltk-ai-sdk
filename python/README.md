@@ -1,11 +1,11 @@
-# Intellihub SDK (Python)
+# DLTK SDK (Python)
 
-[![](https://intellihub.ai/static/img/logo-high.png)](https://intellihub.ai)
-Intellihub renders a comprehensive spectrum of solutions that can be accessed by users on-demand from our pool of transformational technologies.
+[![](https://intellihub.ai/static/img/logo-high.png)](https://dev.dltk.ai/)
+DLTK renders a comprehensive spectrum of solutions that can be accessed by users on-demand from our pool of transformational technologies.
 
 ### Installation
 
-Intellihub SDK requires Python 3.5 + . Go to https://intellihub.ai and create an app. On creation of an app, you will get an API Key.
+DLTK SDK requires Python 3.5 + . Go to https://dev.dltk.ai/ and create an app. On creation of an app, you will get an API Key.
 
 ```sh
 import intellihub
@@ -14,4 +14,4 @@ response = c.sentiment_analysis('I am feeling good.')
 print(response)
 ```
 
-For more details, visit https://intellihub.ai
+For more details, visit https://dev.dltk.ai/
