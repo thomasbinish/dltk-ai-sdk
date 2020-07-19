@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="dltk_ai",
-    version="1.3.0",
+    version="1.0.0",
     author="DLTK",
     author_email="connect@qubitai.tech",
     description="Python Client for DLTK.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Spotflock/intellihub-sdk-python",
+    url="https://github.com/dltk-ai/dltk-ai-sdk",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -19,4 +19,3 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
 )
-
