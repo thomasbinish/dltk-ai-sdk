@@ -9,8 +9,8 @@ DLTK renders a comprehensive spectrum of solutions that can be accessed by users
 DLTK SDK requires Python 3.5 + . Go to https://dev.dltk.ai/ and create an app. On creation of an app, you will get an API Key.
 
 ```sh
-import intellihub
-c = intellihub.IntellihubClient('API Key')
+import dltk_ai
+c = dltk_ai.DltkAiClient('API Key')
 response = c.sentiment_analysis('I am feeling good.')
 print(response)
 ```
