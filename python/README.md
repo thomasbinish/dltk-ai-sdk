@@ -1,6 +1,7 @@
 # DLTK SDK (Python)
 
 [![](https://github.com/dltk-ai/dltk-ai-sdk/blob/master/python/dltk.png)](https://dev.dltk.ai/)
+
 DLTK renders a comprehensive spectrum of solutions that can be accessed by users on-demand from our pool of transformational technologies.
 
 ### Installation
