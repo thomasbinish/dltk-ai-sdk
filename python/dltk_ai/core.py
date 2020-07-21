@@ -107,8 +107,8 @@ class DltkAiClient:
             text : A base64 decoded image with face detected.
         """
 
-        body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
-        url = self.base_url + '/core/face-detection/image'
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/face-detection/image'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers)
         return response.content
@@ -119,11 +119,87 @@ class DltkAiClient:
         :return
             obj : A list of co-ordinates for all faces detected in the image.
         """
-        body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
-        url = self.base_url + '/core/face-detection/json'
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/face-detection/json'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers).json()
         return response
+
+    def eye_detection_image(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            text : A base64 decoded image with eye detected.
+        """
+
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/eye-detection/image'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers)
+        return response.content
+
+    def eye_detection_json(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            obj : A list of co-ordinates for all eyes detected in the image.
+        """
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/eye-detection/json'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers).json()
+        return response
+
+    def smile_detection_image(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            text : A base64 decoded image with smile detected.
+        """
+
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/smile-detection/image'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers)
+        return response.content
+
+    def smile_detection_json(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            obj : A list of co-ordinates for all smiles detected in the image.
+        """
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/smile-detection/json'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers).json()
+        return response
+
+    def license_plate_detection_image(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            text : A base64 decoded image with license plate detected.
+        """
+
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/license-plate/image'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers)
+        return response.content
+
+    def license_plate_detection_json(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            obj : A list of co-ordinates for all license plate detected in the image.
+        """
+        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/vision/license-plate/json'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers).json()
+        return response
+
 
     def object_detection_image(self, image_path):
         """
