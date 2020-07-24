@@ -113,6 +113,19 @@ class DltkAiClient:
         response = requests.post(url=url, files=body, headers=headers)
         return response.content
 
+    def face_detection_image_core(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            text : A base64 decoded image with face detected.
+        """
+
+        body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/core/vision/face-detection/image'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers)
+        return response.content
+
     def face_detection_json(self, image_path):
         """
         :param str image_path: The path of the image file.
@@ -121,6 +134,18 @@ class DltkAiClient:
         """
         body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
         url = self.base_url + '/vision/face-detection/json'
+        headers = {'ApiKey': self.api_key}
+        response = requests.post(url=url, files=body, headers=headers).json()
+        return response
+
+    def face_detection_json_core(self, image_path):
+        """
+        :param str image_path: The path of the image file.
+        :return
+            obj : A list of co-ordinates for all faces detected in the image.
+        """
+        body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/core/vision/face-detection/json'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers).json()
         return response
@@ -182,8 +207,8 @@ class DltkAiClient:
             text : A base64 decoded image with license plate detected.
         """
 
-        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
-        url = self.base_url + '/vision/license-plate/image'
+        body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/core/vision/licence-plate/image'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers)
         return response.content
@@ -194,8 +219,8 @@ class DltkAiClient:
         :return
             obj : A list of co-ordinates for all license plate detected in the image.
         """
-        body = {'file': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
-        url = self.base_url + '/vision/license-plate/json'
+        body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
+        url = self.base_url + '/core/vision/licence-plate/json'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers).json()
         return response
@@ -208,7 +233,7 @@ class DltkAiClient:
             text : A base64 decoded image with objects detected.
         """
         body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
-        url = self.base_url + '/core/object-detection/image'
+        url = self.base_url + '/core/vision/object-detection/image'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers)
         return response.content
@@ -220,7 +245,7 @@ class DltkAiClient:
             obj : A list of co-ordinates for all objects detected in the image.
         """
         body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
-        url = self.base_url + '/core/object-detection/json'
+        url = self.base_url + '/core/vision/object-detection/json'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers).json()
         return response
@@ -232,7 +257,7 @@ class DltkAiClient:
             obj : A list of all classes detected in the image.
         """
         body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
-        url = self.base_url + '/core/image-classification'
+        url = self.base_url + '/core/vision/image-classification'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, headers=headers).json()
         return response
@@ -260,7 +285,7 @@ class DltkAiClient:
             'stepsPerEpoch': steps_per_epoch
         }
         body = json.dumps(body)
-        url = self.base_url + '/core/custom-image-classification/train'
+        url = self.base_url + '/core/vision/custom-image-classification/train'
         headers = {'ApiKey': self.api_key, 'Content-Type': 'application/json'}
         response = requests.post(url=url, data=body, headers=headers).json()
         return response
@@ -280,7 +305,7 @@ class DltkAiClient:
             'modelUrl': model_url,
         }
         body = json.dumps(body)
-        url = self.base_url + '/core/custom-image-classification/predict'
+        url = self.base_url + '/core/vision/custom-image-classification/predict'
         headers = {'ApiKey': self.api_key, 'Content-Type': 'application/json'}
         response = requests.post(url=url, data=body, headers=headers).json()
         return response
@@ -295,7 +320,7 @@ class DltkAiClient:
         file = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
         body = {'modelUrl': model_url}
         body=json.dumps(body)
-        url = self.base_url + '/core/custom-image-classification/predict/image'
+        url = self.base_url + '/core/vision/custom-image-classification/predict/image'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=file, data=body, headers=headers)
         return response
@@ -320,7 +345,7 @@ class DltkAiClient:
             'steps': int(steps)
         }
         body = json.dumps(body)
-        url = self.base_url + '/core/custom-object-detection/train'
+        url = self.base_url + '/core/vision/custom-object-detection/train'
         headers = {'ApiKey': self.api_key, 'Content-Type': 'application/json'}
         response = requests.post(url=url, data=body, headers=headers).json()
         return response
@@ -339,7 +364,7 @@ class DltkAiClient:
             'modelUrl': model_url,
         }
         body = json.dumps(body)
-        url = self.base_url + '/core/custom-object-detection/predict'
+        url = self.base_url + '/core/vision/custom-object-detection/predict'
         headers = {'ApiKey': self.api_key, 'Content-Type': 'application/json'}
         response = requests.post(url=url, data=body, headers=headers).json()
         return response
@@ -354,7 +379,7 @@ class DltkAiClient:
         body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
         data={'modelUrl': model_url}
         body=json.dumps(body)
-        url = self.base_url + '/core/custom-object-detection/predict/image'
+        url = self.base_url + '/core/vision/custom-object-detection/predict/image'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, data=data, headers=headers)
         return response.content
@@ -369,7 +394,7 @@ class DltkAiClient:
         body = {'image': (image_path, open(image_path, 'rb'), 'multipart/form-data')}
         data = {'modelUrl': model_url}
         body=json.dumps(body)
-        url = self.base_url + '/core/custom-object-detection/predict/json'
+        url = self.base_url + '/core/vision/custom-object-detection/predict/json'
         headers = {'ApiKey': self.api_key}
         response = requests.post(url=url, files=body, data=data, headers=headers).json()
         return response
@@ -380,7 +405,7 @@ class DltkAiClient:
         :return:
             obj: A json obj containing the status details.
         """
-        url = self.base_url + '/core/status/{0}'.format(job_id)
+        url = self.base_url + '/core/vision/status/{0}'.format(job_id)
         JOB_STATUS_CHECK_INTERVAL = 5
         STATE = 'status'
         headers = {'ApiKey': self.api_key}
